@@ -6,7 +6,6 @@
     
       <ul>
           <li><a class="active" ><i class="fa fa-home" aria-hidden="true"></i>&nbsp;Home</a></li>
-          <li><a><i class="fas fa-blog"></i>&nbsp;Blog</a></li>
           <li><a><i class="fas fa-play-circle"></i>&nbsp;Courses</a></li>
           <li><a><i class="fas fa-dumbbell"></i>&nbsp;MyCourses</a></li>
           <li><a><i class="fas fa-heartbeat"></i>&nbsp;BMI Calculator</a></li>
@@ -23,7 +22,7 @@
                 <div class="api"></div>
                 <h6 align="center">JOIN FOR FREE!</h6>
                     <p align="center">Join for free and start building and tracking your workouts, get support from other Fitness Blender members and more!</p>
-                <li><a routerLink="login" >Login</a></li>
+                <li><a routerLink="login" (click)="myMethod()">Login</a></li>
                 <li><a routerLink="join" alt="1" >Join Us</a></li>
               </ul>
           </li>
@@ -78,8 +77,7 @@
   </div>
  </div>
  
-   <div class="footer-copyright  text-center py-3"><p>© 2020 Copyright:
-          <a href="#"> FitnessClub.in</a></p>
+   <div class="footer-copyright  text-center py-3">
           <p><a class="btn-fb btn-lg" href="facebook.com" target="_blank"><i class="fab fa-facebook-f white-text mr-4"> </i></a>
           <a class="btn-tw btn-lg" href="twitter.com" target="_blank"><i class="fab fa-twitter white-text mr-4"> </i></a>
           <a class="btn-gplus btn-lg" href="googleplus.com" target="_blank"><i class="fab fa-google-plus-g white-text mr-4"></i></a>
