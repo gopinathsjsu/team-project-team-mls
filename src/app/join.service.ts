@@ -16,4 +16,8 @@ export class JoinService {
   {
     return this.http.post('/user/login',obj);
   }
+  joinuser(obj:User)
+  {
+    return this.http.post('http://localhost:8080/user/join',obj);
+  }
 }

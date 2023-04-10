@@ -9,11 +9,13 @@ import { MdbCheckboxModule } from 'mdb-angular-ui-kit/checkbox';
 import { JoinService } from './join.service';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { HttpClientModule } from '@angular/common/http';
+import { JoinComponent } from './join/join.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent
+    LoginComponent,
+    JoinComponent
   ],
   imports: [
     BrowserModule,

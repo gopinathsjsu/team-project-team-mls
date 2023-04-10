@@ -18,7 +18,7 @@ export class AppComponent {
   routes:string[]=['/login','/home','/join'];
 
   constructor(private js:JoinService,private router: Router,private snackBar:MatSnackBar,private fb:FormBuilder) { 
-    /*  this.sub = this.fb.group({
+      this.sub = this.fb.group({
         email:    ['', Validators.compose([
           Validators.required,
           Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$')
@@ -34,7 +34,7 @@ export class AppComponent {
             else
               this.showComponent = this.routes.indexOf(event.url) !== -1 ;
         }
-      });*/
+      });
     }
 
   

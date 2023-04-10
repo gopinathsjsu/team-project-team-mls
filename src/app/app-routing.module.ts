@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './login/login.component';
+import { JoinComponent } from './join/join.component';
 import { LogrouteGuard } from './logroute.guard';
 
 const routes: Routes = [
@@ -9,8 +10,8 @@ const routes: Routes = [
     pathMatch: 'full'    
   }, 
   { path:'login', component:LoginComponent,canActivate:[LogrouteGuard]},
-  /*{ path:'join', component:JoinComponent,canActivate:[LogrouteGuard]}, 
-  { path:'home', component:HomeComponent},
+  { path:'join', component:JoinComponent,canActivate:[LogrouteGuard]}, 
+  /*{ path:'home', component:HomeComponent},
   { path:'profile', component:ProfileComponent,canActivate:[ProfileGuard],canDeactivate:[ProfileExitGuard]},
   { path:'forgotpass', component:ForgotpassComponent,canActivate:[LogrouteGuard]},
   { path:'bmi', component:BmiComponent},
