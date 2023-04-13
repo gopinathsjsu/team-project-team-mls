@@ -4,6 +4,7 @@ const testRoute=require('./user-api');
 const mc=require('mongodb').MongoClient;
 const mongoose = require("mongoose");
 const path=require('path');
+const bodyparser = require("body-parser");
 const { MongoClient } = require('mongodb');
 const cors = require('cors')
 
@@ -21,61 +22,60 @@ app.use(exp.static(path.join(__dirname,'./dist/fitnessClub')));
 //     next();
 // });
 
+app.use(bodyparser.json());
+
 app.use('/user',testRoute);
 
-app.use((req,res,next)=>{
+app.use((req,res)=>{
     res.send({message:`${req.url} is invalid!`});
 });
+ app.listen(8080,()=>{
+                console.log("server listening on port 8080");
+           }); 
 
-var dbUrl = "mongodb+srv://mounishjuvvadi:abcd@fitnessclub.exdzzg3.mongodb.net/?retryWrites=true&w=majority";
-
-const client = new MongoClient(dbUrl, {useUnifiedTopology: true});
-client.connect().then((client)=>{
-    
-        app.locals.dbObject=client;
-        console.log('connected to mongodb');
-        app.listen(process.env.PORT || 8080,()=>{
-            console.log("server listening on port ",process.env.PORT);
-        }); 
-      
-});
-// mc.connect(dbUrl,{useUnifiedTopology:true},(err,client)=>{
-//     console.log("ddd",client);
+// var dbUrl="mongodb+srv://baka:ittop@cluster0-ebc9w.mongodb.net/ecficio?retryWrites=true&w=majority";
+// mc.connect(dbUrl,{useNewUrlParser:true,useUnifiedTopology:true},(err,client)=>{
 //     if(err)
 //     {
 //         console.log("Err in db connect ",err);
 //     }
 //     else{
 //         app.locals.dbObject=client;
+//         console.log(client.db('ecficio'));
 //         console.log('connected to mongodb');
 //         app.listen(process.env.PORT || 8080,()=>{
 //             console.log("server listening on port ",process.env.PORT);
 //         });
 //     }
 // });
+var dbUrl = "mongodb+srv://mounishjuvvadi:abcd@fitnessclub.exdzzg3.mongodb.net/?retryWrites=true&w=majority";
+async function main() {
+   
+    const client = new MongoClient(dbUrl);
+
+    try {
+        // Connect to the MongoDB cluster
+         await client.connect()
+         app.locals.dbObject=client;
+        // c.db('finess').collection('users').find().toArray(function(err, docs) {
+        //     console.log(JSON.stringify(docs));
+        // });
+        //console.log(c.db('finess').collection('users').collectionName);
+        // Make the appropriate DB calls
+        await listDatabases(client);
+
+    } catch (e) {
+        console.error(e);
+    } 
+}
 
 
-// const client = new MongoClient(dbUrl);
-// async function connect() {
-//     try {
-//         await client.connect();
-//         const db = client.db('fitness');
-//         const coll = db.collection('users');
-//         app.locals.dbObject=db;
-//         //const cursor = coll.find();
-//     // iterate code goes here
-//     //await cursor.forEach(console.log);
-//     //await mongoose.connect(dbUrl, {dbName: 'fitness'});
-//     console.log(coll);
-//     console.log("Connected to MongoDB");
-//     } catch (error) {
-//     console.error(error);
-//     }
-//     }
-    
-//     connect();
-    
-//     app.listen(8000, () => {
-//     console.log("Server started on port 8000");
-//     });
-    
+main().catch(console.error);
+
+
+async function listDatabases(client) {
+    databasesList = await client.db().admin().listDatabases();
+
+    console.log("Databases:");
+    databasesList.databases.forEach(db => console.log(` - ${db.name}`));
+};

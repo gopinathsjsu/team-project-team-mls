@@ -1,20 +1,9 @@
-/*import { Component } from '@angular/core';
-
-@Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
-})
-export class LoginComponent {
-
-}*/
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { JoinService } from '../join.service';
 import { AppComponent } from '../app.component';
 import { MatSnackBar } from '@angular/material/snack-bar';
-
 
 @Component({
   selector: 'app-login',

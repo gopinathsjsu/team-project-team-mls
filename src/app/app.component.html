@@ -1,51 +1,52 @@
-<header>
+<header *ngIf="showComponent">
   <div class="logo">
     <a href="#">FitnessClub</a>
   </div>
   <nav id="nav" class="nav">
     
       <ul>
-          <li><a class="active" ><i class="fa fa-home" aria-hidden="true"></i>&nbsp;Home</a></li>
-          <li><a><i class="fas fa-play-circle"></i>&nbsp;Courses</a></li>
-          <li><a><i class="fas fa-dumbbell"></i>&nbsp;MyCourses</a></li>
-          <li><a><i class="fas fa-heartbeat"></i>&nbsp;BMI Calculator</a></li>
-          <li><a class="user"><i class="fas fa-user-circle"></i>&nbsp;Hey!! <i class="fas fa-caret-down"></i></a>
+          <li><a routerLink="home" class="active" (click)="myMethod()"><i class="fa fa-home" aria-hidden="true"></i>&nbsp;Home</a></li>
+          <li><a routerLink="blog" (click)="myMethod()"><i class="fas fa-blog"></i>&nbsp;Blog</a></li>
+          <li><a routerLink="courses" (click)="myMethod()"><i class="fas fa-play-circle"></i>&nbsp;Courses</a></li>
+          <li *ngIf="z"><a routerLink="mycourses" (click)="myMethod()"><i class="fas fa-dumbbell"></i>&nbsp;MyCourses</a></li>
+          <li><a routerLink="bmi" (click)="myMethod()"><i class="fas fa-heartbeat"></i>&nbsp;BMI Calculator</a></li>
+          <li *ngIf="z" ><a class="user"><i class="fas fa-user-circle"></i>&nbsp;Hey!!{{user}} <i class="fas fa-caret-down"></i></a>
               <ul class="fade-in">
-                <li><a><i class="fa fa-cog fa-spin fa-1x fa-fw"></i>
+                <li><a routerLink="profile" (click)="myMethod()"><i class="fa fa-cog fa-spin fa-1x fa-fw"></i>
                   <span class="sr-only">Loading...</span>&nbsp;MyProfile</a></li>
-                <li><a><i class="fas fa-sign-out-alt"></i>&nbsp;Log Out</a></li>
+                <li (click)="logout()"><a><i class="fas fa-sign-out-alt"></i>&nbsp;Log Out</a></li>
                 
               </ul>
             </li>  
-          <li><a class="user"><i class="fas fa-user-circle"></i>&nbsp;Welcome!! <i class="fas fa-caret-down"></i></a>
+          <li *ngIf="!z"><a class="user"><i class="fas fa-user-circle"></i>&nbsp;Welcome!! <i class="fas fa-caret-down"></i></a>
               <ul class="fade-in">
                 <div class="api"></div>
                 <h6 align="center">JOIN FOR FREE!</h6>
                     <p align="center">Join for free and start building and tracking your workouts, get support from other Fitness Blender members and more!</p>
                 <li><a routerLink="login" (click)="myMethod()">Login</a></li>
-                <li><a routerLink="join" alt="1" >Join Us</a></li>
+                <li><a routerLink="join" alt="1" (click)="myMethod()">Join Us</a></li>
               </ul>
           </li>
         </ul>           
     </nav>
-  <div class="menu-toggle" ><i class="fa fa-bars" aria-hidden="true"></i></div>
+  <div class="menu-toggle" (click)="myMethod()"><i class="fa fa-bars" aria-hidden="true"></i></div>
 </header>
 <div class="container-fluid">
   <router-outlet></router-outlet>
 </div>  
-<footer class="page-footer font-small unique-color-dark">        
+<footer class="page-footer font-small unique-color-dark" *ngIf="showComponent">        
   <div class="container text-center text-md-left mt-5">
     <div class="row mt-3">
       <div class="md1 col-md-3 col-lg-4 col-xl-4 mx-auto mb-4">
          <h6 class="text-uppercase font-weight-bold">Get In Touch</h6>
          <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 120px;">
               <p>Don’t miss any updates of our new FitnessClub and Courses!!</p>
-         <form>
+         <form [formGroup]="sub" (ngSubmit)="onSubscribe()">
                 <div class="form-group">
-                  <input type="email" formControlName="email" class="form-control" placeholder="name@example.com" >
-                  <div class="invalid-feedback">
-                    <div>Email Id is required</div>
-                    <div>Please provide a valid email-id</div>
+                  <input type="email" formControlName="email" class="form-control" placeholder="name@example.com" [ngClass]="{ 'is-invalid': submitted && f.email.errors }">
+                  <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                    <div *ngIf="f.email.errors.required">Email Id is required</div>
+                    <div *ngIf="f.email.errors.pattern">Please provide a valid email-id</div>
                   </div>
                 </div>
                 <button type="submit" class="btn btn-rounded btn-primary"><i class="far fa-envelope pr-2" aria-hidden="true"></i>Subscribe</button>
@@ -77,12 +78,13 @@
   </div>
  </div>
  
-   <div class="footer-copyright  text-center py-3">
-          <p><a class="btn-fb btn-lg" href="facebook.com" target="_blank"><i class="fab fa-facebook-f white-text mr-4"> </i></a>
-          <a class="btn-tw btn-lg" href="twitter.com" target="_blank"><i class="fab fa-twitter white-text mr-4"> </i></a>
-          <a class="btn-gplus btn-lg" href="googleplus.com" target="_blank"><i class="fab fa-google-plus-g white-text mr-4"></i></a>
-          <a class="btn-li btn-lg" href="linked.in" target="_blank"><i class="fab fa-linkedin-in white-text mr-4"> </i></a>
-          <a class="btn-ins btn-lg" href="instagram.in" target="_blank"><i class="fab fa-instagram white-text"></i></a></p>
-   </div>
+ <div class="footer-copyright  text-center py-3">
+  <p><a class="btn-fb btn-lg" href="facebook.com" target="_blank"><i class="fab fa-facebook-f white-text mr-4"> </i></a>
+  <a class="btn-tw btn-lg" href="twitter.com" target="_blank"><i class="fab fa-twitter white-text mr-4"> </i></a>
+  <a class="btn-gplus btn-lg" href="googleplus.com" target="_blank"><i class="fab fa-google-plus-g white-text mr-4"></i></a>
+  <a class="btn-li btn-lg" href="linked.in" target="_blank"><i class="fab fa-linkedin-in white-text mr-4"> </i></a>
+  <a class="btn-ins btn-lg" href="instagram.in" target="_blank"><i class="fab fa-instagram white-text"></i></a></p>
+</div>
    
 </footer>
+
