@@ -65,29 +65,6 @@ export class AppComponent {
     return this.sub.controls; 
   }
 
-  onSubscribe(){
-    this.submitted = true;
-    if (this.sub.invalid) {
-      return;
-    } 
-    console.log(this.sub.get('email').value);
-    this.js.subscrib({email: this.sub.get('email').value}).subscribe(res=>{
-      if(res['message']=='success'){
-        var dd=this.snackBar.open('Successfully Subscribed!!','',{
-          duration: 3000
-        });
-        this.sub.reset();
-      }
-      else if(res['message']=='already subscribed'){
-        var dd=this.snackBar.open('Already Subscribed!^_^','',{
-          duration: 3000
-        });
-      }
-      else  
-        console.log(res['message']);
-      this.submitted=false;
-    });
-  }
 
   logout(){
     localStorage.removeItem('signedToken');

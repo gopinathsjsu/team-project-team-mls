@@ -19,9 +19,6 @@ export class JoinService {
     return this.http.post(this.link+'/user/mycourses',obj);
   }
 
-  subscrib(obj){
-    return this.http.post(this.link+'/user/subscribe',obj);
-  }
 
   dpUpdate(obj){
     return this.http.post(this.link+'/user/dpUpdate',obj)

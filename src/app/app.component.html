@@ -41,7 +41,7 @@
          <h6 class="text-uppercase font-weight-bold">Get In Touch</h6>
          <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 120px;">
               <p>Don’t miss any updates of our new FitnessClub and Courses!!</p>
-         <form [formGroup]="sub" (ngSubmit)="onSubscribe()">
+         <form [formGroup]="sub">
                 <div class="form-group">
                   <input type="email" formControlName="email" class="form-control" placeholder="name@example.com" [ngClass]="{ 'is-invalid': submitted && f.email.errors }">
                   <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
