@@ -17,7 +17,7 @@ export class AppComponent {
   submitted = false;
   user:string;
   showComponent:boolean=false;
-  routes:string[]=['/login','/home','/join','/bmi','/profile','/forgotpass','/blog','/','/view','/courses','/mycourses','/postcourse'];
+  routes:string[]=['/login','/home','/join','/bmi','/profile','/forgotpass','/blog','/','/view','/courses','/mycourses','/postcourse', '/manager'];
 
   constructor(private js:JoinService,private router: Router,private snackBar:MatSnackBar,private fb:FormBuilder) { 
     this.sub = this.fb.group({

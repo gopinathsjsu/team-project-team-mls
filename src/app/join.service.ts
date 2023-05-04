@@ -28,6 +28,10 @@ export class JoinService {
     return this.http.post(this.link+'/user/profileUpdate',data);
   }
 
+  isAdmin(){
+    return localStorage.getItem("isAdmin");
+  }
+
   profileRead(data:User){
     return this.http.post(this.link+'/user/profileRead',data);
   }
@@ -36,6 +40,12 @@ export class JoinService {
   {
     console.log(obj);
     return this.http.post(this.link+'/user/join',obj);
+  }
+
+  adduser(obj:User)
+  {
+    console.log(obj);
+    return this.http.post(this.link+'/user/add',obj);
   }
 
   login(obj:User)
@@ -92,5 +102,11 @@ export class JoinService {
   validEmail(obj)
   {
     return this.http.post(this.link+'/user/validEmail',obj);
+  }
+
+  getAllUsers()
+  {
+    return this.http.get<any[]>(this.link+"/user/allUsers");
+    
   }
 }

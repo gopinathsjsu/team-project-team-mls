@@ -35,6 +35,8 @@ import { MycoursesComponent } from './mycourses/mycourses.component';
 import { EditorModule } from '@tinymce/tinymce-angular';
 import { PostCourseComponent } from './post-course/post-course.component';
 import {MatRadioModule} from '@angular/material/radio';
+import { ManagerComponent } from './manager/manager.component';
+import { AdduserComponent } from './adduser/adduser.component';
 
 @NgModule({
   declarations: [
@@ -53,7 +55,9 @@ import {MatRadioModule} from '@angular/material/radio';
     DisplayComponent,
     ViewComponent,
     MycoursesComponent,
-    PostCourseComponent
+    PostCourseComponent,
+    ManagerComponent,
+    AdduserComponent
   ],
   imports: [
     BrowserModule,

@@ -60,6 +60,7 @@ export class LoginComponent implements OnInit {
           duration: 3000
         });
         localStorage.setItem('signedToken',res['token']);
+        localStorage.setItem('isAdmin',res['isAdmin']);
         this.ac.user=nn;
         this.ac.z=true;
         this.router.navigate(['/home']);

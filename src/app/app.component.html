@@ -10,6 +10,7 @@
           <li><a routerLink="courses" (click)="myMethod()"><i class="fas fa-play-circle"></i>&nbsp;Courses</a></li>
           <li *ngIf="z"><a routerLink="mycourses" (click)="myMethod()"><i class="fas fa-dumbbell"></i>&nbsp;MyCourses</a></li>
           <li><a routerLink="bmi" (click)="myMethod()"><i class="fas fa-heartbeat"></i>&nbsp;BMI Calculator</a></li>
+          <li><a routerLink="manager" (click)="myMethod()"><i class="fas fa-heartbeat"></i>&nbsp;Management</a></li>
           <li *ngIf="z" ><a class="user"><i class="fas fa-user-circle"></i>&nbsp;Hey!!{{user}} <i class="fas fa-caret-down"></i></a>
               <ul class="fade-in">
                 <li><a routerLink="profile" (click)="myMethod()"><i class="fa fa-cog fa-spin fa-1x fa-fw"></i>
@@ -65,6 +66,7 @@
       <p><a routerLink="blog">Blog</a></p>
       <p><a routerLink="courses">Courses</a></p>
       <p><a routerLink="bmi">BMI Calculator</a></p>
+      <p><a routerLink="manager">Management</a></p>
     </div>
    
     <div class="md1 col-md-3 col-lg-2 col-xl-3 mx-auto mb-md-0 mb-4">

@@ -78,6 +78,45 @@ testRouter.post('/join',(req,res,next)=>{
     });
 });
 
+testRouter.use(exp.json());
+testRouter.post('/add',(req,res,next)=>{
+    console.log("Hi");
+    let dbo=req.app.locals.dbObject.db('fitness');
+    console.log(req.body);
+    console.log(JSON.stringify(req.body.email),typeof(JSON.stringify(req.body.email)));
+    dbo.collection('users').findOne({username:req.body.username},(err,obj)=>{
+        if(err){
+            console.log('error at user-api:',err);
+            next(err);
+        }
+        if(obj!=null){
+            res.send({message:'user exists'});
+        }
+        else{
+                dbo.collection('users').insertOne(req.body,(err,sucess)=>{
+                    if(err){
+                        next(err);
+                    }
+                    res.send({message:'user created'});
+                });
+        }
+    });
+});
+
+testRouter.use(exp.json());
+testRouter.get("/allusers", (req, res) => {
+    let dbo=req.app.locals.dbObject.db('fitness');
+    dbo.collection("users").find(null, { projection: { userpass: 0 } }).toArray((error, data) => {
+
+        if (error) {
+            res.status(403).json("Error in Finding the Doc");
+        }
+        else {
+            res.json(data);
+        }
+
+    });
+});
 
 //to return courses of a particular user
 testRouter.use(exp.json());
@@ -158,6 +197,9 @@ testRouter.post('/login',(req,res,next)=>{
                     jwt.sign({username:obj.username},"abcdef",{expiresIn: 604800},(err,signedToken)=>{
                         if(err){
                             next(err);
+                        }
+                        if(obj.username == "Admin"){
+                            res.send({message:'success',token:signedToken,username:obj.username, isAdmin:true});
                         }
                         res.send({message:'success',token:signedToken,username:obj.username});
                     });

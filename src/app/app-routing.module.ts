@@ -6,6 +6,7 @@ import { HomeComponent } from './home/home.component';
 import { ProfileComponent } from './profile/profile.component';
 import { ForgotpassComponent } from './forgotpass/forgotpass.component';
 import { BmiComponent } from './bmi/bmi.component';
+import { ManagerComponent } from './manager/manager.component';
 import { LogrouteGuard } from './logroute.guard';
 import { BlogComponent } from './blog/blog.component';
 import { ProfileGuard } from './profile.guard';
@@ -16,6 +17,8 @@ import { ClassesComponent } from './classes/classes.component';
 import { ViewComponent } from './view/view.component';
 import { MycoursesComponent } from './mycourses/mycourses.component';
 import { ProfileExitGuard } from './profile-exit.guard';
+import { AdminGuard } from './admin.guard';
+import { AdduserComponent } from './adduser/adduser.component';
 import { PostCourseComponent } from './post-course/post-course.component';
 
 
@@ -29,6 +32,8 @@ const routes: Routes = [
   { path:'home', component:HomeComponent},
   { path:'profile', component:ProfileComponent,canActivate:[ProfileGuard],canDeactivate:[ProfileExitGuard]},
   { path:'forgotpass', component:ForgotpassComponent,canActivate:[LogrouteGuard]},
+  {path:"manager", component:ManagerComponent},
+  {path:"adduser", component:AdduserComponent},
   { path:'bmi', component:BmiComponent},
   { path:'blog',component:BlogComponent},
   { path:'post',component:PostComponent},
