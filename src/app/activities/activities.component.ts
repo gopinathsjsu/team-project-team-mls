@@ -1,5 +1,5 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
-import { interval, Subject } from 'rxjs';
+import { Component } from '@angular/core';
+import { interval } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 
 @Component({
@@ -7,60 +7,75 @@ import { takeUntil } from 'rxjs/operators';
   templateUrl: './activities.component.html',
   styleUrls: ['./activities.component.scss']
 })
-export class ActivitiesComponent{
-    treadmillTime = { hours: 0, minutes: 0, seconds: 0 };
-    cyclingTime = { hours: 0, minutes: 0, seconds: 0 };
-    weightTrainingTime = { hours: 0, minutes: 0, seconds: 0 };
-    treadmillInterval: any;
-    cyclingInterval: any;
-    weightTrainingInterval: any;
-  
-    startTreadmill() {
-      this.treadmillInterval = setInterval(() => {
-        if (this.treadmillTime.seconds < 59) {
-          this.treadmillTime.seconds++;
+export class ActivitiesComponent {
+  treadmillTime = { hours: 0, minutes: 0, seconds: 0 };
+  cyclingTime = { hours: 0, minutes: 0, seconds: 0 };
+  weightTrainingTime = { hours: 0, minutes: 0, seconds: 0 };
+  treadmillInterval: any;
+  cyclingInterval: any;
+  weightTrainingInterval: any;
+  totalTreadmillTime = { hours: 0, minutes: 0, seconds: 0 };
+  totalCyclingTime = { hours: 0, minutes: 0, seconds: 0 };
+  totalWeightTrainingTime = { hours: 0, minutes: 0, seconds: 0 };
+
+  startTreadmill() {
+    this.treadmillInterval = setInterval(() => {
+      if (this.treadmillTime.seconds < 59) {
+        this.treadmillTime.seconds++;
+      } else {
+        this.treadmillTime.seconds = 0;
+        if (this.treadmillTime.minutes < 59) {
+          this.treadmillTime.minutes++;
         } else {
-          this.treadmillTime.seconds = 0;
-          if (this.treadmillTime.minutes < 59) {
-            this.treadmillTime.minutes++;
-          } else {
-            this.treadmillTime.minutes = 0;
-            this.treadmillTime.hours++;
-          }
+          this.treadmillTime.minutes = 0;
+          this.treadmillTime.hours++;
         }
-      }, 1000);
-    }
-  
-    stopTreadmill() {
-      clearInterval(this.treadmillInterval);
-    }
-    resetTreadmill() {
-      this.treadmillTime = { hours: 0, minutes: 0, seconds: 0 };
-    }
-  
-    startCycling() {
-      this.cyclingInterval = setInterval(() => {
-        if (this.cyclingTime.seconds < 59) {
-          this.cyclingTime.seconds++;
+      }
+    }, 1000);
+  }
+
+  stopTreadmill() {
+    clearInterval(this.treadmillInterval);
+    this.totalTreadmillTime.hours += this.treadmillTime.hours;
+    this.totalTreadmillTime.minutes += this.treadmillTime.minutes;
+    this.totalTreadmillTime.seconds += this.treadmillTime.seconds;
+    this.treadmillTime = { hours: 0, minutes: 0, seconds: 0 };
+  }
+
+  resetTreadmill() {
+    this.treadmillTime = { hours: 0, minutes: 0, seconds: 0 };
+    this.totalTreadmillTime = { hours: 0, minutes: 0, seconds: 0 };
+  }
+
+  startCycling() {
+    this.cyclingInterval = setInterval(() => {
+      if (this.cyclingTime.seconds < 59) {
+        this.cyclingTime.seconds++;
+      } else {
+        this.cyclingTime.seconds = 0;
+        if (this.cyclingTime.minutes < 59) {
+          this.cyclingTime.minutes++;
         } else {
-          this.cyclingTime.seconds = 0;
-          if (this.cyclingTime.minutes < 59) {
-            this.cyclingTime.minutes++;
-          } else {
-            this.cyclingTime.minutes = 0;
-            this.cyclingTime.hours++;
-          }
+          this.cyclingTime.minutes = 0;
+          this.cyclingTime.hours++;
         }
-      }, 1000);
-    }
-  
-    stopCycling() {
-      clearInterval(this.cyclingInterval);
-    }
-    resetCycling() {
-      this.cyclingTime = { hours: 0, minutes: 0, seconds: 0 };
-    }
-  
+      }
+    }, 1000);
+  }
+
+  stopCycling() {
+    clearInterval(this.cyclingInterval);
+    this.totalCyclingTime.hours += this.cyclingTime.hours;
+    this.totalCyclingTime.minutes += this.cyclingTime.minutes;
+    this.totalCyclingTime.seconds += this.cyclingTime.seconds;
+    this.cyclingTime = { hours: 0, minutes: 0, seconds: 0 };
+  }
+
+  resetCycling() {
+    this.cyclingTime = { hours: 0, minutes: 0, seconds: 0 };
+    this.totalCyclingTime = { hours: 0, minutes: 0, seconds: 0 };
+  }
+ 
     startWeightTraining() {
       this.weightTrainingInterval = setInterval(() => {
         if (this.weightTrainingTime.seconds < 59) {
@@ -85,6 +100,73 @@ export class ActivitiesComponent{
     }
 }
 
+
+
+// import { Component, OnInit, OnDestroy } from '@angular/core';
+// import { interval, Subject } from 'rxjs';
+// import { takeUntil } from 'rxjs/operators';
+
+// @Component({
+//   selector: 'app-activities',
+//   templateUrl: './activities.component.html',
+//   styleUrls: ['./activities.component.scss']
+// })
+// export class ActivitiesComponent{
+
+//     treadmillTime = { hours: 0, minutes: 0, seconds: 0 };
+//     cyclingTime = { hours: 0, minutes: 0, seconds: 0 };
+//     weightTrainingTime = { hours: 0, minutes: 0, seconds: 0};
+//     treadmillInterval: any;
+//     cyclingInterval: any;
+//     weightTrainingInterval: any;
+  
+//     startTreadmill() {
+//       this.treadmillInterval = setInterval(() => {
+//         if (this.treadmillTime.seconds < 59) {
+//           this.treadmillTime.seconds++;
+//         } else {
+//           this.treadmillTime.seconds = 0;
+//           if (this.treadmillTime.minutes < 59) {
+//             this.treadmillTime.minutes++;
+//           } else {
+//             this.treadmillTime.minutes = 0;
+//             this.treadmillTime.hours++;
+//           }
+//         }
+//       }, 1000);
+//     }
+  
+//     stopTreadmill() {
+//       clearInterval(this.treadmillInterval);
+    
+//     }
+//     resetTreadmill() {
+//       this.treadmillTime = { hours: 0, minutes: 0, seconds: 0};
+//     }
+  
+//     startCycling() {
+//       this.cyclingInterval = setInterval(() => {
+//         if (this.cyclingTime.seconds < 59) {
+//           this.cyclingTime.seconds++;
+//         } else {
+//           this.cyclingTime.seconds = 0;
+//           if (this.cyclingTime.minutes < 59) {
+//             this.cyclingTime.minutes++;
+//           } else {
+//             this.cyclingTime.minutes = 0;
+//             this.cyclingTime.hours++;
+//           }
+//         }
+//       }, 1000);
+//     }
+  
+//     stopCycling() {
+//       clearInterval(this.cyclingInterval);
+//     }
+//     resetCycling() {
+//       this.cyclingTime = { hours: 0, minutes: 0, seconds: 0};
+//     }
+  
 
   
 
