@@ -37,6 +37,7 @@ import { PostCourseComponent } from './post-course/post-course.component';
 import {MatRadioModule} from '@angular/material/radio';
 import { ManagerComponent } from './manager/manager.component';
 import { AdduserComponent } from './adduser/adduser.component';
+import { ActivitiesComponent } from './activities/activities.component';
 
 @NgModule({
   declarations: [
@@ -57,7 +58,8 @@ import { AdduserComponent } from './adduser/adduser.component';
     MycoursesComponent,
     PostCourseComponent,
     ManagerComponent,
-    AdduserComponent
+    AdduserComponent,
+    ActivitiesComponent
   ],
   imports: [
     BrowserModule,

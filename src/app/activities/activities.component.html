@@ -1,0 +1,46 @@
+<div style="margin-right:5%; height: 50%; width: 50%">
+    <div class="card">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT1FHVr8m7jPUgyGshnUcJAEtNAaq8WvWBRiQ&usqp=CAU" class="card-img-top" alt=""/>
+      <div class="card-body">
+        <h5 class="card-title">Threadmill</h5>
+        <p class="card-text"></p>
+        <button style="background-color: #4CAF50; border: none; color: white; padding: 15px 32px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; margin: 4px 2px; cursor: pointer;" (click)="startTreadmill()">Start</button>
+        <button style="background-color: #4CAF50; border: none; color: white; padding: 15px 32px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; margin: 4px 2px; cursor: pointer;" (click)="stopTreadmill()">End</button>
+        <button style="background-color: #4CAF50; border: none; color: white; padding: 15px 32px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; margin: 4px 2px; cursor: pointer;" (click)="resetTreadmill()">Reset</button>
+        
+  
+        <p id="timer-threadmill">{{treadmillTime.hours}} hours, {{treadmillTime.minutes}} minutes, {{treadmillTime.seconds}} seconds</p> 
+      </div>
+    </div>
+  </div>
+  
+  <div style="margin-right:5%; height: 50%; width: 50%">
+    <div class="card">
+      <img src="https://c.ndtvimg.com/2020-08/dtm9edd8_cycling_625x300_05_August_20.jpg" class="card-img-top" alt="">
+      <div class="card-body">
+        <h5 class="card-title">Cycling</h5>
+        <p class="card-text"></p>
+        <button style="background-color: red; border: none; color: white; padding: 15px 32px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; margin: 4px 2px; cursor: pointer;"(click)= "startCycling()">Start</button>
+        <button style="background-color: red; border: none; color: white; padding: 15px 32px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; margin: 4px 2px; cursor: pointer;"(click)="stopCycling()">End</button>
+        <button style="background-color: red; border: none; color: white; padding: 15px 32px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; margin: 4px 2px; cursor: pointer;"(click)="resetCycling()">Reset</button>
+  
+        <p id="timer-cycling">{{cyclingTime.hours}} hours, {{cyclingTime.minutes}} minutes, {{cyclingTime.seconds}} seconds</p>
+      </div>
+    </div>
+  </div>
+  
+  <div style="margin-right:5%; height: 50%; width: 50%">
+    <div class="card">
+      <img src="https://cdn.shopify.com/s/files/1/1525/5556/files/New_2_Shopify.jpg?v=1570035288" class="card-img-top" alt=""/>
+      <div class="card-body">
+        <h5 class="card-title">Weight Training</h5>
+        <p class="card-text"></p>
+        <button style="background-color: orange; border: none; color: white; padding: 15px 32px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; margin: 4px 2px; cursor: pointer;"(click)="startWeightTraining()">Start</button>
+        <button style="background-color: orange; border: none; color: white; padding: 15px 32px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; margin: 4px 2px; cursor: pointer;"(click)="stopWeightTraining()">End</button>
+        <button style="background-color: orange; border: none; color: white; padding: 15px 32px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; margin: 4px 2px; cursor: pointer;"(click)="resetWeightTraining()">Reset</button>
+  
+        <p id="timer-weight-training">{{weightTrainingTime.hours}} hours, {{weightTrainingTime.minutes}} minutes, {{weightTrainingTime.seconds}} seconds</p>
+      </div>
+    </div>
+  </div>
+  

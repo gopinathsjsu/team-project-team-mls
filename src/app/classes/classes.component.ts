@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Classes } from '../classes'
+import { Classes } from '../classes';
 import { JoinService } from '../join.service';
 import { Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';

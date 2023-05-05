@@ -20,6 +20,8 @@ import { ProfileExitGuard } from './profile-exit.guard';
 import { AdminGuard } from './admin.guard';
 import { AdduserComponent } from './adduser/adduser.component';
 import { PostCourseComponent } from './post-course/post-course.component';
+import { ActivitiesComponent } from './activities/activities.component';
+
 
 
 const routes: Routes = [
@@ -42,6 +44,7 @@ const routes: Routes = [
   { path:'view/:id',component:ViewComponent},
   { path:'blog/:id',component:ShowblogComponent},
   { path:'postcourse',component:PostCourseComponent},
+  {path:'activities',component:ActivitiesComponent},
   { path:'**', 
     pathMatch: 'full', 
     component:PageNotFoundComponent,
