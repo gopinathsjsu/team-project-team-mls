@@ -21,6 +21,7 @@ import { AdminGuard } from './admin.guard';
 import { AdduserComponent } from './adduser/adduser.component';
 import { PostCourseComponent } from './post-course/post-course.component';
 import { ActivitiesComponent } from './activities/activities.component';
+import { FreeTrialComponent } from './free-trial/free-trial.component';
 
 
 
@@ -45,6 +46,8 @@ const routes: Routes = [
   { path:'blog/:id',component:ShowblogComponent},
   { path:'postcourse',component:PostCourseComponent},
   {path:'activities',component:ActivitiesComponent},
+  {path:'freetrial',component:FreeTrialComponent},
+  
   { path:'**', 
     pathMatch: 'full', 
     component:PageNotFoundComponent,

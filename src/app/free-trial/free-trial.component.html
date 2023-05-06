@@ -1,0 +1,41 @@
+<br><br><br><br>
+
+<div *ngIf="" style="margin-top:5%; " align=center>
+    <span  class="spinner-border spinner-border-sm mr-1" style="margin-right:5%; height: 70px; width: 70px;"></span>
+    </div>
+    <p style="margin-top: 75px; font-size: 40px; font-weight: bold; font-style:italic; text-align: center;">IF YOU CANT ACCEPT IT , CHANGE IT</p>
+<div class="row">
+    <div class="col-sm-4">
+        <!-- Card -->
+            <div class="flip-container waves-effect waves-dark" style="margin: 100px;">
+                <div class="view overlay">
+                    <img class="card-img-top" src="https://www.nuvovivo.com/wp-content/uploads/2020/02/lose-weight.png" alt="Card image cap">
+                        <div class="mask rgba-white-slight"></div>
+                </div>
+                <div class="card-body">
+                    <h4 class="card-title">1 week Workout Plan</h4>
+                    <p class="card-text">If u wanna loose weight join our fitness club and enroll now</p>
+                    <button mdbBtn class="btn waves-effect waves-dark blue-gradient" routerLink="/login">Wanna try</button>
+                </div>
+            </div>
+    </div>
+
+    <div style="margin-top:2%; height: 25%; width: 25%">
+        <div class="card">
+          <img src="https://www.verywellfit.com/thmb/Gwy-QEPeZ4Ogpft4btRjdMoI_dQ=/750x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/3436645-GettyImages-982408334-395dc7110a0a4c8184a01225f4ab90cb.jpg" class="card-img-top" alt=""/>
+          <div class="card-body">
+            <h5 class="card-title">Threadmill</h5>
+            <p class="card-text"></p>
+            <button style="background-color: #4CAF50; border: none; color: white; padding: 15px 32px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; margin: 4px 2px; cursor: pointer;" (click)="startTreadmill()">Start</button>
+            <button style="background-color: #4CAF50; border: none; color: white; padding: 15px 32px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; margin: 4px 2px; cursor: pointer;" (click)="stopTreadmill()">End</button>
+            <button style="background-color: #4CAF50; border: none; color: white; padding: 15px 32px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; margin: 4px 2px; cursor: pointer;" (click)="resetTreadmill()">Reset</button>
+            
+      
+            <p id="timer-threadmill">{{treadmillTime.hours}} hours, {{treadmillTime.minutes}} minutes, {{treadmillTime.seconds}} seconds</p> 
+            <P>Total Threadmill Time </P>
+            <p id="timer-threadmill">{{totalTreadmillTime.hours}} hours, {{totalTreadmillTime.minutes}} minutes, {{totalTreadmillTime.seconds}} seconds</p> 
+          </div>
+        </div>
+      </div>
+</div>
+       

@@ -38,6 +38,7 @@ import {MatRadioModule} from '@angular/material/radio';
 import { ManagerComponent } from './manager/manager.component';
 import { AdduserComponent } from './adduser/adduser.component';
 import { ActivitiesComponent } from './activities/activities.component';
+import { FreeTrialComponent } from './free-trial/free-trial.component';
 
 @NgModule({
   declarations: [
@@ -59,7 +60,8 @@ import { ActivitiesComponent } from './activities/activities.component';
     PostCourseComponent,
     ManagerComponent,
     AdduserComponent,
-    ActivitiesComponent
+    ActivitiesComponent,
+    FreeTrialComponent
   ],
   imports: [
     BrowserModule,
