@@ -18,6 +18,7 @@ export interface User{
     membershiptype?:string;
     pincode?:number;
     img?:string;
+    timespent?:{ hours: number, minutes: number, seconds: number };
     about?:string;
     courses?:string[];
     totalTreadmillTime?: { hours: number, minutes: number, seconds: number };

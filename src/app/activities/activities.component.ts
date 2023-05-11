@@ -25,6 +25,9 @@ export class ActivitiesComponent {
   totalTreadmillTime = { hours: 0, minutes: 0, seconds: 0 };
   totalCyclingTime = { hours: 0, minutes: 0, seconds: 0 };
   totalWeightTrainingTime = { hours: 0, minutes: 0, seconds: 0 };
+  t1 = { hours: 0, minutes: 0, seconds: 0 };
+  t2 = { hours: 0, minutes: 0, seconds: 0 };
+  t3 = { hours: 0, minutes: 0, seconds: 0 };
 
   startTreadmill() {
     this.treadmillInterval = setInterval(() => {
@@ -127,6 +130,24 @@ export class ActivitiesComponent {
       });
 
     }
+
+    getScores(){
+      this.js.getScores({user: this.usr}).subscribe((res)=>{
+        if(res['message']=='success'){
+          console.log(res['t1']);
+           this.t1 = res['t1'];
+           this.t2 = res['t2'];
+           this.t3 = res['t3'];
+        }
+        else if(res['message']=='invalid username'){
+          var dd=this.snackBar.open('User donot exist!','',{
+            duration: 3000
+          });
+        }
+      });
+
+    }
+    
 
 }
 

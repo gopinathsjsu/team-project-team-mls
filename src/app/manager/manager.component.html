@@ -68,4 +68,24 @@ font-family: 'Londrina Solid', cursive; background-color: #c5c6c7; border-radius
             <div class="col"></div>
         </div>
     </div>
+
+    <div style="margin:200px">
+    <label for="users">Select user:</label>
+    <select id="users" [(ngModel)]="selectedUser">
+      <option *ngFor="let user of users" [value]="user.username">{{user.username}}</option>
+    </select>
+  </div>
+  <div>
+    <button (click)="clockIn()">Clock In</button>
+    <button (click)="clockOut()">Clock Out</button>
+  </div>
+  <div>
+    <p>Current time: {{currentTime | date:'hh:mm:ss a'}}</p>
+    <p>Current date: {{currentTime | date:'yyyy-MM-dd'}}</p>
+  </div>
+  <div *ngIf="totalTime">
+    <P>Total Time </P>
+    <p id="timer-weight-training">{{totalTime.hours}} hours, {{totalTime.minutes}} minutes, {{totalTime.seconds}} seconds</p>
+  </div>
 </div>
+

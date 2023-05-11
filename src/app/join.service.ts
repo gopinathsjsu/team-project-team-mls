@@ -29,8 +29,18 @@ export class JoinService {
     return this.http.post(this.link+'/user/activityUpdate',obj)
   }
 
+  timeUpdate(obj){
+    console.log(obj);
+    return this.http.post(this.link+'/user/timeUpdate',obj)
+  }
+
   profileUpdate(data){
     return this.http.post(this.link+'/user/profileUpdate',data);
+  }
+
+  getScores(obj){
+    console.log(obj);
+    return this.http.post(this.link+'/user/getScores',obj)
   }
 
   isAdmin(){
