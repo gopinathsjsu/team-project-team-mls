@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { JoinService } from '../join.service';
 import { ActivatedRoute } from '@angular/router';
-
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-view',
   templateUrl: './view.component.html',
@@ -10,7 +10,7 @@ import { ActivatedRoute } from '@angular/router';
 export class ViewComponent implements OnInit {
   x:any;
   loading:boolean=true;
-  constructor(private js:JoinService,private route:ActivatedRoute) { 
+  constructor(private js:JoinService,private route:ActivatedRoute, private router:Router) { 
     this.js.getClassbyId({_id: this.route.snapshot.paramMap.get('id')}).subscribe(res=>{
       if(res['message']=="success")
       {
@@ -28,4 +28,7 @@ export class ViewComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  start(){
+    this.router.navigate(['/activities']);
+  }
 }

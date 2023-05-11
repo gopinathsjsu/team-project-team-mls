@@ -69,7 +69,7 @@ export class PostCourseComponent implements OnInit {
   fd.append("maingoal",this.data.get('maingoal').value);
   fd.append("workouttype",this.data.get('workouttype').value);
   fd.append("coursetype",this.data.get('coursetype').value);
-  fd.append("traininglevel",this.data.get('traininglevel').value);
+  //fd.append("traininglevel",this.data.get('traininglevel').value);
   fd.append("programduration",this.data.get('programduration').value);
   fd.append("daysperweek",this.data.get('daysperweek').value);
   fd.append("timeperworkout",this.data.get('timeperworkout').value);

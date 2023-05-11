@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { MatDialog } from '@angular/material/dialog';
 import { Classes} from '../classes'
 import { JoinService } from '../join.service';
 import { MatDialogRef} from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { ActivitiesComponent } from '../activities/activities.component';
 @Component({
   selector: 'app-display',
   templateUrl: './display.component.html',
@@ -14,7 +16,7 @@ export class DisplayComponent implements OnInit {
   user:string;
   data:string[]=[];
   x:boolean=false;
-  constructor(private snackBar:MatSnackBar,private router:Router,private js:JoinService,private dialog: MatDialogRef<DisplayComponent>) { 
+  constructor(private snackBar:MatSnackBar,private router:Router,private js:JoinService, private dialog1:MatDialog) { 
     this.js.getClassbyId({_id: localStorage.getItem('course')}).subscribe((res)=>{
       if(res['message']=="success")
       {
@@ -40,14 +42,14 @@ export class DisplayComponent implements OnInit {
   ngOnInit() {
   }
   
-  closeDialog(){
-        this.dialog.close('cancel');
-  }
+  // closeDialog(){
+  //       this.dialog.close('cancel');
+  // }
 
 enroll(){
   if(this.user==undefined)
   {
-    this.dialog.close();
+   // this.dialog.close();
     var dd=this.snackBar.open('Login to enroll to the course','Login',{
           duration: 3000
     });
@@ -73,7 +75,7 @@ enroll(){
         dd.onAction().subscribe(()=>{
           this.router.navigate(['/mycourses']);
         });
-        this.closeDialog();
+        //this.closeDialog();
       }
       else
       {
@@ -87,8 +89,17 @@ enroll(){
 
 view()
 {
-  this.closeDialog();
-  this.router.navigate(['/view',localStorage.getItem('course')]);
+  
+  // var blogDialog=this.dialog1.open(ActivitiesComponent,{
+  //   height: '600px',
+  //   width: '900px'
+  // });
+  this.router.navigate(['/activities']);
+  //this.closeDialog();
+}
+
+onCancel(){
+  this.router.navigate(['/courses']);
 }
 
 }

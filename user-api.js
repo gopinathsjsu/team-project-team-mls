@@ -215,7 +215,7 @@ testRouter.post('/login',(req,res,next)=>{
 testRouter.use(exp.json());
 testRouter.post('/updateAbout', (req,res,next)=>{
     let dbo=req.app.locals.dbObject.db('fitness');
-
+    console.log(req);
     dbo.collection('users').findOne({username: req.body.user},(err,objf)=>{
         if(err){
             console.log('error at user-api:',err);
@@ -226,6 +226,110 @@ testRouter.post('/updateAbout', (req,res,next)=>{
         }
         else{
             dbo.collection('users').updateOne({username: req.body.user},{$set: {about: req.body.about}},(err,sucess)=>{
+                if(err){
+                    next(err);
+                }
+                console.log('updated about');
+                res.send({ message: 'success' });
+            });
+        }
+    });
+});
+
+testRouter.use(exp.json());
+testRouter.post('/editUser', (req,res,next)=>{
+    let dbo=req.app.locals.dbObject.db('fitness');
+    console.log(req);
+    dbo.collection('users').findOne({username: req.body.username},(err,objf)=>{
+        if(err){
+            console.log('error at user-api:',err);
+            next(err);
+        }
+        if(objf==null){
+            res.send({message:'invalid username'});
+        }
+        else{
+            // let update = {
+            //     $set: {
+            //         address: req.body.address == null ? objf.address : req.body.address,
+            //         fname: req.body.fname == null ? objf.fname : req.body.fname,
+            //         lname: req.body.lname == null ? objf.lname : req.body.lname,
+            //         email : req.body.lnamev== null ? objf.lname : req.body.email
+            //     }
+            //   };
+            console.log(objf);  
+            
+            var newValues = { $set: {
+                address: req.body.address == '' ? objf.address : req.body.address,
+                fname: req.body.fname == '' ? objf.fname : req.body.fname,
+                lname: req.body.lname == '' ? objf.lname : req.body.lname,
+                email: req.body.email== '' ? objf.email : req.body.email
+            }}
+            dbo.collection('users').updateOne({username: req.body.username},newValues,(err,sucess)=>{
+                if(err){
+                    next(err);
+                }
+                console.log('updated');
+                res.send({ message: 'success' });
+            });
+        }
+    });
+});
+
+testRouter.use(exp.json());
+testRouter.post('/deleteUser', (req,res,next)=>{
+    let dbo=req.app.locals.dbObject.db('fitness');
+    console.log(req);
+            dbo.collection('users').deleteOne({ username: req.body.username, },(err,sucess)=>{
+                if(err){
+                    next(err);
+                }
+                console.log('deleted');
+                res.send({ message: 'success' });
+            });
+});
+
+
+
+//activityUpdate
+testRouter.use(exp.json());
+testRouter.post('/activityUpdate', (req,res,next)=>{
+    console.log(req);
+    let dbo=req.app.locals.dbObject.db('fitness');
+    //let user = localStorage.getItem('user');
+    console.log(req.body.totalTreadmillTime);
+    dbo.collection('users').findOne({username: req.body.user},(err,objf)=>{
+        if(err){
+            console.log('error at user-api:',err);
+            next(err);
+        }
+        if(objf==null){
+            res.send({message:'invalid username'});
+        }
+        else{
+            console.log(objf);
+            var t1 = req.body.totalTreadmillTime;
+            console.log(objf.totalTreadmillTime.hours);
+            t1.hours += objf.totalTreadmillTime.hours;
+            t1.minutes += objf.totalTreadmillTime.minutes;
+            t1.seconds += objf.totalTreadmillTime.seconds;
+            var t2 = req.body.totalCyclingTime;
+            t2.hours += objf.totalCyclingTime.hours;
+            t2.minutes += objf.totalCyclingTime.minutes;
+            t2.seconds += objf.totalCyclingTime.seconds;
+            var t3 = req.body.totalWeightTrainingTime;
+            t3.hours += objf.totalWeightTrainingTime.hours;
+            t3.minutes += objf.totalWeightTrainingTime.minutes;
+            t3.seconds += objf.totalWeightTrainingTime.seconds;
+            let update = {
+                $set: {
+                  totalTreadmillTime: req.body.totalTreadmillTime != null ? t1: objf.totalTreadmillTime,
+                  totalCyclingTime: req.body.totalCyclingTime != null ? t2 : objf.totalCyclingTime,
+                  totalWeightTrainingTime: req.body.totalWeightTrainingTime != null ? t3 : objf.totalWeightTrainingTime
+                }
+              };
+            
+            dbo.collection('users').updateOne({username: req.body.user},update,(err,sucess)=>{
                 if(err){
                     next(err);
                 }
@@ -466,12 +570,39 @@ testRouter.post('/getClass',(req,res,next)=>{
 
 })
 
+//to get all locations data
+testRouter.use(exp.json());
+testRouter.post('/getLocation',(req,res,next)=>{
+    let dbo=req.app.locals.dbObject.db('fitness');
+    dbo.collection('locations').find({}).toArray((err,obj)=>{
+        if(err)
+            next(err);
+        else{
+            res.send({message: 'success',data: obj});
+        }
+    });
+
+})
+
 
 //to get course data by id
 testRouter.use(exp.json());
 testRouter.post('/getClassbyId',(req,res,next)=>{
     let dbo=req.app.locals.dbObject.db('fitness');
     dbo.collection('classes').findOne({_id:ObjectId(req.body._id)},(err,obj)=>{
+        if(err) 
+         console.log(err);
+        else
+        {
+            res.send({message:"success",data:obj});
+        }
+    });
+});
+
+testRouter.use(exp.json());
+testRouter.post('/getUserbyId',(req,res,next)=>{
+    let dbo=req.app.locals.dbObject.db('fitness');
+    dbo.collection('users').findOne({_id:ObjectId(req.body._id)},(err,obj)=>{
         if(err) 
          console.log(err);
         else

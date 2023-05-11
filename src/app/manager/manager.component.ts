@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { User } from 'src/user';
 import { JoinService } from '../join.service';
 
 @Component({
@@ -10,6 +11,7 @@ import { JoinService } from '../join.service';
 export class ManagerComponent implements OnInit {
   msg: string;
   users: any[] = [];
+  obj:User={};
   constructor(public joinService: JoinService) { }
 
   ngOnInit(): void {
@@ -22,22 +24,14 @@ export class ManagerComponent implements OnInit {
     });
   }
 
-  deleteUser(userId: number) {}
-  // deleteUser(userId: number) {
+  deleteUser(username: string) {
+    console.log(username);
+    this.obj.username = username
+    this.joinService.deleteUser(this.obj).subscribe((data: string) => {
+      console.log(data);
+    }, (error: any) => {
 
-  //   if (confirm("Do you want to delete this user?")) {
-  //     //console.log("User deleted with id"+userId);
-  //     this.joinService.deleteUserData(userId).subscribe((data: string) => {
-  //       this.msg = data;
-  //       var index = this.users.findIndex((obj) => {
-  //         return obj._id == userId;
-  //       });
-  //       this.users.splice(index, 1);
-  //     }, (error: any) => {
-  //       this.msg = "something went wrong";
-
-
-  //     });
-  //   }
-  // }
+      this.msg = "Something went wrong"
+    });
+  }
 }

@@ -19,4 +19,7 @@ export interface User{
     img?:string;
     about?:string;
     courses?:string[];
+    totalTreadmillTime?: { hours: number, minutes: number, seconds: number };
+    totalCyclingTime?: { hours: number, minutes: number, seconds: number };
+    totalWeightTrainingTime?: { hours: number, minutes: number, seconds: number };
 }

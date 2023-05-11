@@ -46,9 +46,9 @@
                         </tbody>
                 </table>
                 <div>
-                    <button mat-button class="btn btn-secondary" (click)="closeDialog()">Cancel</button>&nbsp;&nbsp;&nbsp;
+                    <button mat-button class="btn btn-secondary" (click)="onCancel()">Cancel</button>&nbsp;&nbsp;&nbsp;
                     <button mat-button class="btn btn-primary" (click)="enroll()" cdkFocusInitial *ngIf="!x">Enroll now</button>
-                    <button mat-button class="btn btn-success" (click)="view()" cdkFocusInitial *ngIf="x">Workout Plan</button>
+                  <!--  <button mat-button class="btn btn-success" (click)="view()" cdkFocusInitial *ngIf="x">Workout Plan</button> -->
                 </div>
             </div>
             <div class="col-sm-0 col-md-1 col-lg-1"></div>

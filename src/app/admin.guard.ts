@@ -19,13 +19,15 @@ export class AdminGuard implements CanActivate {
   isAdmin:String=this.joinService.isAdmin();
   canActivate():  boolean  {
 
-    
-    if(this.isAdmin == "true")
+    let token = localStorage.getItem('user');
+    if(token == "admin")
     {
-      this.myRouter.navigateByUrl("/");
+      return true;
     }
-
-    return false;
+    else{
+      alert("not authorized");
+      return false;
+    }
   }
   
 }

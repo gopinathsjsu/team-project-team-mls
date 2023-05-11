@@ -65,6 +65,7 @@ export class PostComponent implements OnInit {
     fd.append("story",this.data.get('story').value);
     fd.append("date",this.dp.transform(this.blog.date,'MMMM d, y @t h:mm a'));
     console.log(this.dp.transform(this.blog.date,'MMMM d, y @t h:mm a'));
+    console.log(fd);
     this.js.postBlog(fd).subscribe(res=>{
       if(res['message']=='success'){
         this.dialogRef.close('success');

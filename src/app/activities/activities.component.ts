@@ -2,6 +2,8 @@
 import { Component } from '@angular/core';
 import { interval } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
+import { JoinService } from '../join.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-activities',
@@ -9,6 +11,11 @@ import { takeUntil } from 'rxjs/operators';
   styleUrls: ['./activities.component.scss']
 })
 export class ActivitiesComponent {
+  
+
+  constructor(private js:JoinService,private snackBar:MatSnackBar) { }
+
+  usr = localStorage.getItem('user');
   treadmillTime = { hours: 0, minutes: 0, seconds: 0 };
   cyclingTime = { hours: 0, minutes: 0, seconds: 0 };
   weightTrainingTime = { hours: 0, minutes: 0, seconds: 0 };
@@ -95,10 +102,32 @@ export class ActivitiesComponent {
   
     stopWeightTraining() {
       clearInterval(this.weightTrainingInterval);
+      this.totalWeightTrainingTime.hours += this.weightTrainingTime.hours;
+      this.totalWeightTrainingTime.minutes += this.weightTrainingTime.minutes;
+      this.totalWeightTrainingTime.seconds += this.weightTrainingTime.seconds;
+      this.weightTrainingTime = { hours: 0, minutes: 0, seconds: 0 };
     }
     resetWeightTraining() {
       this.weightTrainingTime = { hours: 0, minutes: 0, seconds: 0 };
+      this.totalWeightTrainingTime = { hours: 0, minutes: 0, seconds: 0 };
     }
+
+    recordScores(){
+      this.js.activityUpdate({user: this.usr,totalWeightTrainingTime: this.totalWeightTrainingTime, totalCyclingTime: this.totalCyclingTime, totalTreadmillTime: this.totalTreadmillTime}).subscribe((res)=>{
+        if(res['message']=='success'){
+          var dd=this.snackBar.open('activity Updated!!','',{
+            duration: 3000
+          });
+        }
+        else if(res['message']=='invalid username'){
+          var dd=this.snackBar.open('User donot exist!','',{
+            duration: 3000
+          });
+        }
+      });
+
+    }
+
 }
 
 

@@ -32,10 +32,11 @@ export class ClassesComponent implements OnInit {
   {
     //alert(obj);
     localStorage.setItem('course',obj._id);
-    var blogDialog=this.dialog.open(DisplayComponent,{
-      height: '600px',
-      width: '900px'
-    });
+    // var blogDialog=this.dialog.open(DisplayComponent,{
+    //   height: '600px',
+    //   width: '900px'
+    // });
+    this.router.navigate(['/display']);
   }
 }
 

@@ -22,6 +22,9 @@ import { AdduserComponent } from './adduser/adduser.component';
 import { PostCourseComponent } from './post-course/post-course.component';
 import { ActivitiesComponent } from './activities/activities.component';
 import { FreeTrialComponent } from './free-trial/free-trial.component';
+import { LocationsComponent } from './locations/locations.component';
+import { DisplayComponent } from './display/display.component';
+import { EdituserComponent } from './edituser/edituser.component';
 
 
 
@@ -35,17 +38,20 @@ const routes: Routes = [
   { path:'home', component:HomeComponent},
   { path:'profile', component:ProfileComponent,canActivate:[ProfileGuard],canDeactivate:[ProfileExitGuard]},
   { path:'forgotpass', component:ForgotpassComponent,canActivate:[LogrouteGuard]},
-  {path:"manager", component:ManagerComponent},
+  {path:"manager", component:ManagerComponent,canActivate:[AdminGuard]},
   {path:"adduser", component:AdduserComponent},
+  {path:"edituser/:id", component:EdituserComponent},
   { path:'bmi', component:BmiComponent},
   { path:'blog',component:BlogComponent},
+  { path:'display',component:DisplayComponent},
   { path:'post',component:PostComponent},
   { path:'courses',component:ClassesComponent},
+  { path:'locations',component:LocationsComponent},
   { path:'mycourses',component:MycoursesComponent},
   { path:'view/:id',component:ViewComponent},
   { path:'blog/:id',component:ShowblogComponent},
   { path:'postcourse',component:PostCourseComponent},
-  {path:'activities',component:ActivitiesComponent},
+  {path:'activities',component:ActivitiesComponent,canActivate:[ProfileGuard]},
   {path:'freetrial',component:FreeTrialComponent},
   
   { path:'**', 

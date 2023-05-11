@@ -24,6 +24,11 @@ export class JoinService {
     return this.http.post(this.link+'/user/dpUpdate',obj)
   }
 
+  activityUpdate(obj){
+    console.log(obj);
+    return this.http.post(this.link+'/user/activityUpdate',obj)
+  }
+
   profileUpdate(data){
     return this.http.post(this.link+'/user/profileUpdate',data);
   }
@@ -70,6 +75,17 @@ export class JoinService {
     return this.http.post(this.link+'/user/updateAbout',obj);
   }
 
+  editUser(obj)
+  {
+    console.log(obj);
+    return this.http.post(this.link+'/user/editUser',obj);
+  }
+
+  deleteUser(obj){
+    console.log(obj);
+    return this.http.post(this.link+'/user/deleteUser',obj);
+  }
+
   getBlog(obj){
     return this.http.post(this.link+'/user/getBlogs',obj);
   }
@@ -90,9 +106,18 @@ export class JoinService {
     return this.http.post(this.link+'/user/getClass',obj);
   }
 
+  getLocation(obj){
+    return this.http.post(this.link+'/user/getLocation',obj);
+  }
+
   getClassbyId(obj)
   {
      return this.http.post(this.link+'/user/getClassbyId',obj);
+  }
+
+  getUserbyId(obj)
+  {
+    return this.http.post(this.link+'/user/getUserbyId',obj);
   }
 
   enrollClass(obj)

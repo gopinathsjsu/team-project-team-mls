@@ -34,6 +34,8 @@ font-family: 'Londrina Solid', cursive; background-color: #c5c6c7; border-radius
                             <th scope="col">#</th>
                             <th scope="col">Name</th>
                             <th scope="col">Email</th>
+                            <th scope="col">First Name</th>
+                            <th scope="col">Last Name</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -42,12 +44,14 @@ font-family: 'Londrina Solid', cursive; background-color: #c5c6c7; border-radius
                             <th scope="row">{{i+1}}</th>
                             <td>{{user.name}} {{user.username}}</td>
                             <td>{{user.email}}</td>
+                            <td>{{user.fname}}</td>
+                            <td>{{user.lname}}</td>
                             <td style="display: flex; margin: 1vh; background-color:#c5c6c7">
                                 <img src="assets\edit-solid.svg" height="30vw" routerLink="/edituser/{{user._id}}"
                                     style="padding:0.5vh; border-radius: 2px; background-color:yellow;">&nbsp;<img
                                     src="assets\user-minus-solid.svg" height="30vw"
                                     style="padding:0.5vh; border-radius: 2px; background-color:red;"
-                                    (click)="deleteUser(user._id)">
+                                    (click)="deleteUser(user.username)">
 
                             </td>
 

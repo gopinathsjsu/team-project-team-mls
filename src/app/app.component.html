@@ -7,17 +7,18 @@
       <ul>
           <li><a routerLink="home" class="active" (click)="myMethod()"><i class="fa fa-home" aria-hidden="true"></i>&nbsp;Home</a></li>
           <li><a routerLink="blog" (click)="myMethod()"><i class="fas fa-blog"></i>&nbsp;Blog</a></li>
-          <li><a routerLink="courses" (click)="myMethod()"><i class="fas fa-play-circle"></i>&nbsp;Courses</a></li>
-          <li><a routerLink="activities" (click)="myMethod()"><i class="fas fa-heartbeat"></i>&nbsp;Activities</a></li>
+       <!--  <li><a routerLink="courses" (click)="myMethod()"><i class="fas fa-play-circle"></i>&nbsp;Courses</a></li> --> 
+          <li><a routerLink="locations" (click)="myMethod()"><i class="fas fa-play-circle"></i>&nbsp;Locations</a></li>
+         <!-- <li *ngIf="z"><a routerLink="activities" (click)="myMethod()"><i class="fas fa-heartbeat"></i>&nbsp;Activities</a></li> --> 
           <li *ngIf="z"><a routerLink="mycourses" (click)="myMethod()"><i class="fas fa-dumbbell"></i>&nbsp;MyCourses</a></li>
           <li><a routerLink="bmi" (click)="myMethod()"><i class="fas fa-heartbeat"></i>&nbsp;BMI Calculator</a></li>
-          <li><a routerLink="manager" (click)="myMethod()"><i class="fas fa-heartbeat"></i>&nbsp;Management</a></li>
+          <li *ngIf="z"><a routerLink="manager" (click)="myMethod()"><i class="fa fa-cogs"></i>&nbsp;Management</a></li>
           <li *ngIf="z" ><a class="user"><i class="fas fa-user-circle"></i>&nbsp;Hey!!{{user}} <i class="fas fa-caret-down"></i></a>
               <ul class="fade-in">
                 <li><a routerLink="profile" (click)="myMethod()"><i class="fa fa-cog fa-spin fa-1x fa-fw"></i>
                   <span class="sr-only">Loading...</span>&nbsp;MyProfile</a></li>
                 <li (click)="logout()"><a><i class="fas fa-sign-out-alt"></i>&nbsp;Log Out</a></li>
-                
+
               </ul>
             </li>  
           <li *ngIf="!z"><a class="user"><i class="fas fa-user-circle"></i>&nbsp;Welcome!! <i class="fas fa-caret-down"></i></a>
