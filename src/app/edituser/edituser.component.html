@@ -1,0 +1,60 @@
+<div class="container-fluid" style="margin-top: 100px;">    
+    <div class="row">
+        <div class="col-0 col-sm-1 col-md-2"></div>
+        <div class="col-12 col-sm-7 col-md-5">
+            <div class="card">
+                <h2 class="card-header black-text text-center py-4  winter-neva-gradient">
+                    <strong>Edit {{x}}</strong>
+                </h2><br>
+                <div class="card-body px-lg-5 pt-0">
+                    <form [formGroup]="registerForm"  style="color: #757575;" (ngSubmit)="onSubmit()">
+                        <div class="row">
+                            <div class="col-6">
+                                <!-- First name -->
+                                <div class="md-form">
+                                    <i fas icon="angle-right" class="prefix"></i>
+                                    <input type="text" class="form-control" placeholder="First name" formControlName="fname" [ngClass]="{ 'is-invalid': submitted && f.fname.errors }" >
+                                </div>
+                                <div *ngIf="submitted && f.fname.errors" class="invalid-feedback">
+                                    <div *ngIf="f.fname.errors.required">First Name is required</div>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <!-- Last name -->
+                                <div class="md-form"  >
+                                    <i fas icon="angle-right" class="prefix"></i>
+                                    <input type="email"  placeholder="Last name" class="form-control" formControlName="lname" [ngClass]="{ 'is-invalid': submitted && f.lname.errors }">
+                                </div>
+                                <div *ngIf="submitted && f.lname.errors" class="invalid-feedback">
+                                    <div *ngIf="f.lname.errors.required">Last Name is required</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="md-form mt-0">
+                            <i fas icon="envelope" class="prefix"></i>
+                            <input type="email" placeholder="E-mail" formControlName="email"  class="form-control"  [ngClass]="{ 'is-invalid': submitted && f.email.errors }" >
+                            <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                                <div *ngIf="f.email.errors.required">Email Id is required</div>
+                                <div *ngIf="f.email.errors.pattern">Please provide a valid email-id</div>
+                            </div>
+                        </div>
+                        <div class="md-form mt-0">
+                            <i fas icon="user" class="prefix"></i>
+                            <input type="text" placeholder="Address" formControlName="address"  class="form-control"  [ngClass]="{ 'is-invalid': submitted && f.address.errors }" >
+                            <div *ngIf="submitted && f.address.errors" class="invalid-feedback">
+                                <div *ngIf="f.username.errors.required">address is required</div>
+                            </div>
+                        </div>
+                        <div class="md-form" align=center>
+                            <button routerLink="/manager" [disabled]="loading" class="btn blue-gradient waves-effect waves-dark" mdbBtn>
+                                <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+                                <a  style="font-weight:bold;">Edit</a> 
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-0 col-sm-0 col-md-1"></div>
+    </div>
+</div>
