@@ -11,7 +11,8 @@ export class JoinService {
   LoggedInUser:string;
   data:any;
   data1:any;
-  link:string="http://localhost:8080";
+  // link:string="http://localhost:8080";
+  link:string="";
   //link:string="";
   constructor(private http:HttpClient) { }
 
@@ -103,7 +104,7 @@ export class JoinService {
   getBlogById(obj){
     return this.http.post(this.link+'/user/getBlogById',obj);
   }
-  
+
   postBlog(obj){
     return this.http.post(this.link+'/user/postBlog',obj);
   }
@@ -142,6 +143,6 @@ export class JoinService {
   getAllUsers()
   {
     return this.http.get<any[]>(this.link+"/user/allUsers");
-    
+
   }
 }

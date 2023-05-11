@@ -8,13 +8,13 @@ const bodyparser = require("body-parser");
 const { MongoClient } = require('mongodb');
 const cors = require('cors')
 
-var corsOptions = {
-  origin: 'http://localhost:4200',
-  optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204 
-}
+// var corsOptions = {
+//   origin: 'http://localhost:4200',
+//   optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
+// }
 
-app.use(cors(corsOptions));
-app.use(exp.static(path.join(__dirname,'./dist/fitnessClub')));
+app.use(cors());
+app.use(exp.static(path.join(__dirname,'./dist/my-health-club')));
 
 // app.use(function (req, res, next) {
 //     res.header("Access-Control-Allow-Origin", "*");
@@ -31,7 +31,7 @@ app.use((req,res)=>{
 });
  app.listen(8080,()=>{
                 console.log("server listening on port 8080");
-           }); 
+           });
 
 // var dbUrl="mongodb+srv://baka:ittop@cluster0-ebc9w.mongodb.net/ecficio?retryWrites=true&w=majority";
 // mc.connect(dbUrl,{useNewUrlParser:true,useUnifiedTopology:true},(err,client)=>{
@@ -50,7 +50,7 @@ app.use((req,res)=>{
 // });
 var dbUrl = "mongodb+srv://mounishjuvvadi:abcd@fitnessclub.exdzzg3.mongodb.net/?retryWrites=true&w=majority";
 async function main() {
-   
+
     const client = new MongoClient(dbUrl);
 
     try {
@@ -66,7 +66,7 @@ async function main() {
 
     } catch (e) {
         console.error(e);
-    } 
+    }
 }
 
 
