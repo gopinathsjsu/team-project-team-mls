@@ -21,7 +21,7 @@ testRouter.post('/validEmail',(req,res,next)=>{
 
 
 //to store image in cloudinary
-const cloudinary = require("cloudinary").v2;
+const cloudinary = require("cloudinary").v2;
 const { CloudinaryStorage } = require('multer-storage-cloudinary');
 const multer = require("multer");
 //credentials
@@ -396,9 +396,9 @@ testRouter.post('/timeUpdate', (req,res,next)=>{
 testRouter.use(exp.json());
 testRouter.post('/dpUpdate',upload.single('photo'),(req,res,next)=>{
     console.log("req body is ",req.body)
-    console.log("url is ", req.file.secure_url);
+    console.log("url is ", req.file.path);
     var user=req.body.user;  
-    var img = req.file.secure_url;
+    var img = req.file.path;
     delete req.body.photo;
     let dbo=req.app.locals.dbObject.db('fitness');
     dbo.collection('users').updateOne({username: user},{ $set: { img: img } },(err,sucess)=>{
@@ -522,8 +522,8 @@ testRouter.post('/forgotpass',(req,res,next)=>{
 testRouter.use(exp.json());
 testRouter.post('/postBlog',upload.single('blog'),(req,res,next)=>{
     console.log("req body is ",req.body)
-    console.log("url is ", req.file.secure_url);
-    var image = req.file.secure_url;
+    console.log("url is ", req.file.path);
+    var image = req.file.path;
     delete req.body.blog;
     let dbo=req.app.locals.dbObject.db('fitness');
     dbo.collection('blogs').insertOne({username: req.body.user,
@@ -578,7 +578,7 @@ testRouter.post('/getBlogById',(req,res,next)=>{
 testRouter.use(exp.json());
 testRouter.post('/postClass',upload.single('classes'),(req,res,next)=>{
     
-    var image = req.file.secure_url;
+    var image = req.file.path;
     delete req.body.classes;
     let dbo=req.app.locals.dbObject.db('fitness');
     dbo.collection('classes').insertOne({img: image,
