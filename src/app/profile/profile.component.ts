@@ -60,7 +60,8 @@ export class ProfileComponent implements OnInit {
       city: [this.data.city],
       state: [this.data.state],
       country: [this.data.country],
-      pincode: [this.data.pincode]
+      pincode: [this.data.pincode],
+      membershiptype: [this.data.membershiptype]
   });
   }
 

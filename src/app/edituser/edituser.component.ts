@@ -48,7 +48,8 @@ x:any;
       ])],
       fname: [''],
       lname: [''],
-      address: ['']
+      address: [''],
+      membershiptype: ['']
     });
   }
 
@@ -89,6 +90,7 @@ x:any;
         this.obj.fname=this.registerForm.value.fname;
         this.obj.email=this.registerForm.value.email;
         this.obj.address=this.registerForm.value.address;
+        this.obj.membershiptype = this.registerForm.value.membershiptype;
         console.log(this.obj);
         this.js.editUser(this.obj).subscribe((res)=>{
           if(res['message']=='success'){

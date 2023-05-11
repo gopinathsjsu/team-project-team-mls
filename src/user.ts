@@ -15,6 +15,7 @@ export interface User{
     city?:string;
     state?:string;
     country?:string;
+    membershiptype?:string;
     pincode?:number;
     img?:string;
     about?:string;

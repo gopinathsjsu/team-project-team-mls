@@ -75,6 +75,7 @@ export class JoinComponent implements OnInit {
         this.obj.city='';
         this.obj.state='';
         this.obj.country='';
+        this.obj.membershiptype='';
         this.obj.pincode=0;
         this.obj.img='http://ssl.gstatic.com/accounts/ui/avatar_2x.png';
         this.obj.about='';

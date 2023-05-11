@@ -45,8 +45,18 @@
                                 <div *ngIf="f.username.errors.required">Username is required</div>
                             </div>
                         </div>
+                        <div class="md-form mt-0">
+                            <h4 style="color:aqua; margin: 1vw; display: flex; justify-content: center;">Package</h4>
+                            <select class="form-select form-select-lg mb-3"  formControlName="membershiptype" class="form-control" aria-label=".form-select-lg example"
+                                placeholder="Select Package">
+                                <option selected>Select Package</option>
+                                <option value="Calisthenic">Gold</option>
+                                <option value="Gymnasium">Platinum</option>
+                                <option value="Cross Fitness">Regular</option>
+                            </select>
+                        </div>
                         <div class="md-form" align=center>
-                            <button routerLink="/manager" [disabled]="loading" class="btn blue-gradient waves-effect waves-dark" mdbBtn>
+                            <button [disabled]="loading" class="btn blue-gradient waves-effect waves-dark" mdbBtn>
                                 <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
                                  <a style="font-weight:bold;">Add</a> 
                             </button>

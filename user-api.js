@@ -21,7 +21,7 @@ testRouter.post('/validEmail',(req,res,next)=>{
 
 
 //to store image in cloudinary
-const cloudinary = require("cloudinary");
+const cloudinary = require("cloudinary").v2;
 const { CloudinaryStorage } = require('multer-storage-cloudinary');
 const multer = require("multer");
 //credentials
@@ -263,7 +263,8 @@ testRouter.post('/editUser', (req,res,next)=>{
                 address: req.body.address == '' ? objf.address : req.body.address,
                 fname: req.body.fname == '' ? objf.fname : req.body.fname,
                 lname: req.body.lname == '' ? objf.lname : req.body.lname,
-                email: req.body.email== '' ? objf.email : req.body.email
+                email: req.body.email== '' ? objf.email : req.body.email,
+                membershiptype: req.body.membershiptype== '' ? objf.membershiptype : req.body.membershiptype
             }}
             dbo.collection('users').updateOne({username: req.body.username},newValues,(err,sucess)=>{
                 if(err){

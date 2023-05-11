@@ -32,7 +32,8 @@ export class AdduserComponent implements OnInit {
       ])],
       fname: ['',Validators.required],
       lname: ['',Validators.required],
-      username: ['', Validators.required]
+      username: ['', Validators.required],
+      membershiptype: ['']
     });
   }
 
@@ -79,6 +80,7 @@ export class AdduserComponent implements OnInit {
         this.obj.contact=0;
         this.obj.efreq='';
         this.obj.address='';
+        this.obj.membershiptype = this.registerForm.value.membershiptype;
         this.obj.city='';
         this.obj.state='';
         this.obj.country='';
