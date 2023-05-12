@@ -2,6 +2,27 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.0.
 
+## Team Members
+Mounish Juvvadi
+Lohith Reddy Kondareddy
+Shlok Patel
+Surya Teja Palle
+
+## XP Values
+- **Communication:**  Our team communicated with each other regularly and Scrum meetings were held every Monday. We discussed about the dependency, issues faced and provide constructive feedback to each other which helped to progress with the project. We used Github Project Board to track progress of the sprints.
+- **Simplicity:** We implemented the essential and required tasks in the project.
+- **Feedback:** Each team member provided constructive feedback on the work performed and ensured that the feedback was implemented in the next sprint.
+- **Courage:** We had the courage to incorporate any additional details/tasks that were required for the project progress.
+- **Respect:** Each team member respected each other’s decisions and timelines.
+
+## Tools and Languages
+- Frontend - Angular
+- Backend - Node.js
+- Database – MongoDB
+- UI Icons – Bootstrap and CSS
+- Postman - REST API client to test the developed APIs
+- Deployment - Amazon Web Services (AWS)
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
