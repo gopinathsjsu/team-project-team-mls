@@ -41,6 +41,7 @@ import { ActivitiesComponent } from './activities/activities.component';
 import { FreeTrialComponent } from './free-trial/free-trial.component';
 import { LocationsComponent } from './locations/locations.component';
 import { EdituserComponent } from './edituser/edituser.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
@@ -65,7 +66,8 @@ import { EdituserComponent } from './edituser/edituser.component';
     ActivitiesComponent,
     FreeTrialComponent,
     LocationsComponent,
-    EdituserComponent
+    EdituserComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
