@@ -25,6 +25,7 @@ import { FreeTrialComponent } from './free-trial/free-trial.component';
 import { LocationsComponent } from './locations/locations.component';
 import { DisplayComponent } from './display/display.component';
 import { EdituserComponent } from './edituser/edituser.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 
 
@@ -44,6 +45,7 @@ const routes: Routes = [
   { path:'bmi', component:BmiComponent},
   { path:'blog',component:BlogComponent},
   { path:'display',component:DisplayComponent},
+  { path:'dashboard',component:DashboardComponent},
   { path:'post',component:PostComponent},
   { path:'courses',component:ClassesComponent},
   { path:'locations',component:LocationsComponent},
