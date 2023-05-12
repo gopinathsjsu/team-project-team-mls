@@ -1,0 +1,42 @@
+<br><br><br><br><br>
+<div class="container">
+    <h3 align="center" style="font-size: 25px;font-weight: bold;">{{classes.title}}</h3>
+    <div class="jumbotron">
+        <div class="row">
+            <div class="col-sm-0 col-md-1 col-lg-1"></div>
+            <div class="col-sm-12 col-md-10 col-lg-10"> 
+                <h5>Dashboard Analytics</h5>
+                <div class="col">
+                    <table class="table table-striped shadow-lg container-fluid">
+                        <thead>
+                            <tr style="color: #1F2833;">
+                                <th scope="col">#</th>
+                                <th scope="col">Name</th>
+                                <th scope="col">Time Spent in Gym</th>
+                                <th scope="col">Threadmill Time</th>
+                                <th scope="col">cycling Time</th>
+                                <th scope="col">weightTraining Time</th>
+                                <th scope="col">Courses Enrolled</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let user of users; index as i;">
+                                <th scope="row">{{i+1}}</th>
+                                <td>{{user.name}} {{user.username}}</td>
+                                <td>{{user.timespent.hours}} hours, {{user.timespent.minutes}} minutes, {{user.timespent.seconds}} seconds</td>
+                                <td>{{user.totalTreadmillTime.hours}} hours, {{user.totalTreadmillTime.minutes}} minutes, {{user.totalTreadmillTime.seconds}} seconds</td>
+                                <td>{{user.totalCyclingTime.hours}} hours, {{user.totalCyclingTime.minutes}} minutes, {{user.totalCyclingTime.seconds}} seconds</td>
+                                <td>{{user.totalWeightTrainingTime.hours}} hours, {{user.totalWeightTrainingTime.minutes}} minutes, {{user.totalWeightTrainingTime.seconds}} seconds</td>
+                                <td>{{user.courses.length}}</td>
+                            </tr>
+    
+    
+                        </tbody>
+                    </table>
+                    <p *ngIf="users.length==0"> No Records Found</p>
+                </div>
+            </div>
+            <div class="col-sm-0 col-md-1 col-lg-1"></div>
+        </div>
+    </div>
+</div>
