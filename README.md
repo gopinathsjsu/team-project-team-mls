@@ -4,7 +4,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Team Members
 - Integration of UI and Backend	- Mounish Juvvadi
-- Design User Interface	        - Lohith Reddy Kondareddy
+- Design User Interface	        - Lohith Reddy Kondreddy
 - Implement Back-End Code	      - Shlok Patel
 - Implement Back-End Code	      - Surya Teja Palle
 
