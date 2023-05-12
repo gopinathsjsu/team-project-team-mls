@@ -3,10 +3,10 @@
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.0.
 
 ## Team Members
-Integration of UI and Backend	- Mounish Juvvadi
-Design User Interface	        - Lohith Reddy Kondareddy
-Implement Back-End Code	      - Shlok Patel
-Implement Back-End Code	      - Surya Teja Palle
+- Integration of UI and Backend	- Mounish Juvvadi
+- Design User Interface	        - Lohith Reddy Kondareddy
+- Implement Back-End Code	      - Shlok Patel
+- Implement Back-End Code	      - Surya Teja Palle
 
 
 ## XP Values
