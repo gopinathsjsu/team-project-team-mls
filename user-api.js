@@ -664,6 +664,19 @@ testRouter.post('/getUserbyId',(req,res,next)=>{
     });
 });
 
+testRouter.use(exp.json());
+testRouter.post('/getUserbyname',(req,res,next)=>{
+    let dbo=req.app.locals.dbObject.db('fitness');
+    dbo.collection('users').findOne({username: req.body.user},(err,objf)=>{
+        if(err) 
+         console.log(err);
+        else
+        {
+            console.log(objf);
+            res.send({message:"success",data:objf});
+        }
+    });
+});
 
 //to enroll to the course
 testRouter.use(exp.json());
