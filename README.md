@@ -3,10 +3,11 @@
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.0.
 
 ## Team Members
-Mounish Juvvadi
-Lohith Reddy Kondareddy
-Shlok Patel
-Surya Teja Palle
+Integration of UI and Backend	- Mounish Juvvadi
+Design User Interface	        - Lohith Reddy Kondareddy
+Implement Back-End Code	      - Shlok Patel
+Implement Back-End Code	      - Surya Teja Palle
+
 
 ## XP Values
 - **Communication:**  Our team communicated with each other regularly and Scrum meetings were held every Monday. We discussed about the dependency, issues faced and provide constructive feedback to each other which helped to progress with the project. We used Github Project Board to track progress of the sprints.
