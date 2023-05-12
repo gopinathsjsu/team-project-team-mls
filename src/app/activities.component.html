@@ -1,0 +1,110 @@
+<div class="container" style="margin-top: 20%;">
+  <div class="card">
+    <img src="https://www.verywellfit.com/thmb/Gwy-QEPeZ4Ogpft4btRjdMoI_dQ=/750x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/3436645-GettyImages-982408334-395dc7110a0a4c8184a01225f4ab90cb.jpg" class="card-img-top" alt=""/>
+    <div class="card-body">
+      <h5 class="card-title">Threadmill</h5>
+      <p class="card-text"></p>
+      <button style="background-color: #4CAF50; border: none; color: white; padding: 15px 32px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; margin: 4px 2px; cursor: pointer;" (click)="startTreadmill()">Start</button>
+      <button style="background-color: #4CAF50; border: none; color: white; padding: 15px 32px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; margin: 4px 2px; cursor: pointer;" (click)="stopTreadmill()">End</button>
+      <button style="background-color: #4CAF50; border: none; color: white; padding: 15px 32px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; margin: 4px 2px; cursor: pointer;" (click)="resetTreadmill()">Reset</button>
+      
+
+      <p id="timer-threadmill">{{treadmillTime.hours}} hours, {{treadmillTime.minutes}} minutes, {{treadmillTime.seconds}} seconds</p> 
+      <P>Total Threadmill Time </P>
+      <p id="timer-threadmill">{{totalTreadmillTime.hours}} hours, {{totalTreadmillTime.minutes}} minutes, {{totalTreadmillTime.seconds}} seconds</p> 
+    </div>
+  </div>
+
+  <div class="card">
+    <img src="https://c.ndtvimg.com/2020-08/dtm9edd8_cycling_625x300_05_August_20.jpg" class="card-img-top" alt="">
+    <div class="card-body">
+      <h5 class="card-title">Cycling</h5>
+      <p class="card-text"></p>
+      <button style="background-color: red; border: none; color: white; padding: 15px 32px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; margin: 4px 2px; cursor: pointer;"(click)= "startCycling()">Start</button>
+      <button style="background-color: red; border: none; color: white; padding: 15px 32px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; margin: 4px 2px; cursor: pointer;"(click)="stopCycling()">End</button>
+      <button style="background-color: red; border: none; color: white; padding: 15px 32px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; margin: 4px 2px; cursor: pointer;"(click)="resetCycling()">Reset</button>
+
+      <p id="timer-cycling">{{cyclingTime.hours}} hours, {{cyclingTime.minutes}} minutes, {{cyclingTime.seconds}} seconds</p>
+      <P>Total cycling Time </P>
+      <p id="timer-cycling">{{totalCyclingTime.hours}} hours, {{totalCyclingTime.minutes}} minutes, {{totalCyclingTime.seconds}} seconds</p> 
+  </div>
+  </div>
+
+  <div class="card">
+    <img src="https://cdn.shopify.com/s/files/1/1525/5556/files/New_2_Shopify.jpg?v=1570035288" class="card-img-top" alt=""/>
+    <div class="card-body">
+      <h5 class="card-title">Weight Training</h5>
+      <p class="card-text"></p>
+      <button style="background-color: orange; border: none; color: white; padding: 15px 32px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; margin: 4px 2px; cursor: pointer;"(click)="startWeightTraining()">Start</button>
+      <button style="background-color: orange; border: none; color: white; padding: 15px 32px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; margin: 4px 2px; cursor: pointer;"(click)="stopWeightTraining()">End</button>
+      <button style="background-color: orange; border: none; color: white; padding: 15px 32px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; margin: 4px 2px; cursor: pointer;"(click)="resetWeightTraining()">Reset</button>
+
+      <p id="timer-weight-training">{{weightTrainingTime.hours}} hours, {{weightTrainingTime.minutes}} minutes, {{weightTrainingTime.seconds}} seconds</p>
+     <P>Total Weight Training Time </P>
+      <p id="timer-weight-training">{{totalWeightTrainingTime.hours}} hours, {{totalWeightTrainingTime.minutes}} minutes, {{totalWeightTrainingTime.seconds}} seconds</p> 
+   </div>
+
+  </div>
+  <div class="a">
+  <button style="background-color: rgb(181, 144, 76); border: none; color: white; padding: 15px 32px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; margin: 4px 2px; cursor: pointer;"(click)="recordScores()">Record</button>
+ </div>
+  <!DOCTYPE html>
+<html>
+<head>
+  <style>
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      margin: 0 auto;
+      font-family: Arial, sans-serif;
+      font-size: 16px;
+      margin-bottom: 100px;
+      align-items: center;
+      margin-left: 200px;
+    }
+    th, td {
+      text-align: left;
+      padding: 12px;
+      border: 1px solid #ddd;
+    }
+    th {
+      background-color: #f2f2f2;
+      color: #333;
+    }
+    tr:nth-child(even) {
+      background-color: #f8f8f8;
+    }
+    tr:hover {
+      background-color: #f4f4f4;
+    }
+  </style>
+</head>
+<body>
+  <div style="margin-top: 100px;">
+  <table>
+    <thead>
+      <tr>
+        <th>Total Threadmill Time</th>
+        <th>Total Cycling Time</th>
+        <th>Total Weight Training Time</th>
+      </tr>
+      <tr>
+        <th>{{t1.hours}} hours, {{t1.minutes}} minutes, {{t1.seconds}} seconds</th>
+        <th>{{t2.hours}} hours, {{t2.minutes}} minutes, {{t2.seconds}} seconds</th>
+        <th>{{t2.hours}} hours, {{t2.minutes}} minutes, {{t2.seconds}} seconds</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+
+</body>
+</html>
+</div>
+<button style="background-color: rgb(255, 0, 174); border: none; color: white; padding: 15px 32px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; margin: 4px 2px; cursor: pointer;"(click)="getScores()">Display Time</button>
