@@ -80,6 +80,7 @@ export class JoinComponent implements OnInit {
         this.obj.img='http://ssl.gstatic.com/accounts/ui/avatar_2x.png';
         this.obj.about='';
         this.obj.courses=[];
+        this.obj.timespent= { hours: 0, minutes: 0, seconds: 0 };
         this.obj.totalTreadmillTime= { hours: 0, minutes: 0, seconds: 0 };
         this.obj.totalCyclingTime= { hours: 0, minutes: 0, seconds: 0 };
         this.obj.totalWeightTrainingTime= { hours: 0, minutes: 0, seconds: 0 };
